@@ -1,4 +1,23 @@
-# React + Vite
+# OctoFit Tracker frontend
+
+## API configuration
+
+The frontend reads `VITE_CODESPACE_NAME` through Vite's `import.meta.env` values. Define it in a local environment file when using the Codespaces API:
+
+```bash
+# octofit-tracker/frontend/.env.local
+VITE_CODESPACE_NAME=your-codespace-name
+```
+
+The API URL becomes `https://your-codespace-name-8000.app.github.dev`. When the variable is unset, the app safely falls back to `http://localhost:8000`.
+
+Start the presentation tier with:
+
+```bash
+npm run dev
+```
+
+The app uses React Router for the Activities, Workouts, Teams, Leaderboard, and Users views.
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
