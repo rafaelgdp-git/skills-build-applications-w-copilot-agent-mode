@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 
-function CollectionPage({ resource, title, eyebrow, description, columns }) {
+function CollectionPage({ resource, endpoint, title, eyebrow, description, columns }) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -9,7 +9,7 @@ function CollectionPage({ resource, title, eyebrow, description, columns }) {
   useEffect(() => {
     let active = true
 
-    fetchCollection(resource)
+    fetchCollection(resource, endpoint)
       .then((nextItems) => {
         if (active) setItems(nextItems)
       })
@@ -23,7 +23,7 @@ function CollectionPage({ resource, title, eyebrow, description, columns }) {
     return () => {
       active = false
     }
-  }, [resource])
+  }, [endpoint, resource])
 
   return (
     <section className="page-section">
